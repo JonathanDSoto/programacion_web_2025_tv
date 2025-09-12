@@ -60,6 +60,77 @@
 
 	</article>
 
+	<hr>
+
+	<form>
+
+		<label>
+			Correo electrónico
+		</label>
+		<input type="email" name="email" value="jsoto@uabcs.mx" readonly >
+
+		<br>
+		
+		<label for="nombre">
+			Ingrese su nombre: 
+		</label>
+		<input type="text" name="name" id="nombre" autofocus value="" size="50" minlength="5"  maxlength="10" required pattern="[A-Za-z]{3}" title="Solo 3 letras">
+
+		<br>
+
+		<label for="apellido">
+			Ingrese su apellido:
+		</label>
+		<input type="text" name="lastname" id="apellido" placeholder="Peréz León" value="" required disabled>
+
+		<br>
+
+		<label>
+			Teléfono
+		</label>
+		<input type="number" min="5" max="20" step="2" name="" >
+
+		<br>
+
+		<label>
+			Género:
+		</label>
+		<label>
+			Mujer
+		</label>
+		<input type="radio" name="gender" value="mujer">
+		
+		<label>
+			Hombre
+		</label>
+		<input type="radio" name="gender" value="hombre">
+
+		<br>
+
+		<label>
+			Preferencias:
+		</label>
+
+		<label>
+			Pizza
+		</label>
+		<input type="checkbox" name="preferencias" value="pizza">
+
+		<label>
+			Pozole
+		</label>
+		<input type="checkbox" name="preferencias" value="pozole">
+			
+		<br>
+			
+		<input type="submit" name="" value="Guardar">
+
+		<br>
+
+		<input type="button" name="" value="Hola">
+
+	</form>
+
 </body>
 </html>
 
