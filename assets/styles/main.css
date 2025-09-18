@@ -1,0 +1,23 @@
+#ir_footer{
+
+	background-color: red;
+}
+
+.bg-dark{
+	color:white;
+	background-color: black;
+}
+
+p{
+	background-color: red;
+}
+
+p strong{
+	background-color: green;
+}
+
+a:hover{
+	background-color: cyan;
+}
+
+	

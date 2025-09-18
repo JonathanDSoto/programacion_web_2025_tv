@@ -62,7 +62,7 @@
 
 	<hr>
 
-	<form>
+	<form action="index.html" target="_self" method="POST" autocomplete="off">
 
 		<label>
 			Correo electrónico
@@ -70,11 +70,28 @@
 		<input type="email" name="email" value="jsoto@uabcs.mx" readonly >
 
 		<br>
-		
+
+		<label>
+			Contraseña
+		</label>
+		<input type="password" name="">
+
+		<br>
+		<label>
+			Seleccione una opción: 
+		</label>
+		<select name="" >
+			<option> Opción 1 </option>
+			<option>
+				Opción 2
+			</option>
+		</select>
+
+		<br>
 		<label for="nombre">
 			Ingrese su nombre: 
 		</label>
-		<input type="text" name="name" id="nombre" autofocus value="" size="50" minlength="5"  maxlength="10" required pattern="[A-Za-z]{3}" title="Solo 3 letras">
+		<input type="text" name="name" id="nombre" autofocus value="" size="50" minlength="3"  maxlength="10" required pattern="[A-Za-z]{3}" title="Solo 3 letras">
 
 		<br>
 
@@ -85,10 +102,13 @@
 
 		<br>
 
-		<label>
-			Teléfono
-		</label>
-		<input type="number" min="5" max="20" step="2" name="" >
+		<fieldset>
+			<legend>Teléfono</legend>
+			<input type="number" min="5" max="20" step="2" name="" >
+		</fieldset>
+
+		 
+		
 
 		<br>
 
@@ -122,12 +142,28 @@
 		<input type="checkbox" name="preferencias" value="pozole">
 			
 		<br>
+
+		<label>Ingrese su mensaje</label>
+		<textarea placeholder="Escríbe aquí tus inquietudes" ></textarea>
+		<br> 
+
+		<input type="color" name="">
+		<input type="date" name="">
+		<input type="datetime-local" name="">
+		<input type="file" name="">
+		<input type="hidden" name="action" value="99"> 
+		<input type="reset" name=""> 
+		<br>
 			
 		<input type="submit" name="" value="Guardar">
 
 		<br>
 
 		<input type="button" name="" value="Hola">
+
+		<button type="submit">
+			Enviar datos
+		</button>
 
 	</form>
 
