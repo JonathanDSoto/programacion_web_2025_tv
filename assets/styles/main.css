@@ -1,3 +1,19 @@
+body{
+	font-family: "Times New Roman", Times, serif;
+}
+
+@font-face {
+
+	font-family: "Royalty Free";
+	src: url(../royalty_free/Royalty_Free.ttf);
+	font-weight: normal;
+	font-style: normal; 
+}
+
+.title{
+	font-family: 'Royalty Free';
+}
+
 #ir_footer{
 
 	background-color: red;
@@ -12,6 +28,10 @@ p{
 	background-color: red;
 }
 
+p:hover{
+	background-color: green;
+}
+
 p strong{
 	background-color: green;
 }
@@ -19,5 +39,40 @@ p strong{
 a:hover{
 	background-color: cyan;
 }
-
 	
+li:first-child {
+	background-color: yellow;
+}
+
+li:last-child {
+	background-color: black;
+	color:white;
+}
+
+/*  CONTACT  */
+
+#label_email{
+
+	font-weight: 1000;
+}
+.label_generic{
+
+	text-transform: uppercase;
+}
+
+.post{
+
+	text-align: center;
+}
+
+.label_list{
+
+	text-decoration: underline overline;
+	text-decoration-color: red;
+	text-decoration-thickness: 5px;
+}
+
+.title_4{
+
+	text-shadow: 2px 2px 8px green;;
+}
