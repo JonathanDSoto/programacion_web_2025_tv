@@ -22,6 +22,7 @@ body{
 .bg-dark{
 	color:white;
 	background-color: black;
+	opacity: 0.8;
 
 	padding: 50px 20px 50px 20px;
 }
@@ -34,15 +35,20 @@ body{
 }
 
 p{
-	background-color: red;
+	background-color: Tomato;
 }
 
 p:hover{
-	background-color: green;
+	background-color: rgba(40, 162, 237, 0.5);
 }
 
 p strong{
-	background-color: green;
+	background-color: #6a20c980;
+}
+
+a{
+	display: inline-block;
+	/*visibility: hidden;*/
 }
 
 a:hover{
@@ -91,7 +97,13 @@ li:last-child {
 	width: 50%;
 }
 
+#bg_image{
 
+	background-image: url("../img/cerdo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 200px;
+}
 
 
 
