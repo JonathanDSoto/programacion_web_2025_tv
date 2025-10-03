@@ -105,16 +105,93 @@ li:last-child {
 	background-size: 200px;
 }
 
+.container{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	background-color: dodgerblue;
+	padding: 10px;
+	column-gap: 10px;
+	row-gap: 10px;
+}
+
+.container > div {
+	background-color: #f1f1f1;
+	border: 1px solid black;
+	padding: 10px;
+	font-size: 30px;
+	text-align: center;
+}
+
+.nav_grid{
+
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+
+.content_grid{
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.sidebar_grid{
+	grid-column: 3;
+	grid-row-start: 2;
+	grid-row-end:5;
+
+}
+
+.footer_grid{
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+
+.flex_container{
+	display: flex;
+	background-color:#D97C6F;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.flex_container div{
+	background-color: #f1f1f1;
+	margin: 10px;
+	padding: 20px;
+	font-size: 24px;
+}
 
 
+@media print{
 
+	.my_photo{
+		display: none !important;
+	}
 
+	blockquote{	
+		font-size: 50px;
+	}
+}
 
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+	
+	#cover{
+		width: 50%;
+	}
 
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+	
+	#cover{
+		width: 80%;
+		background-color: red;
+	}
 
+}
 
+@media screen and (min-width: 320px) and (max-width: 480px) {
+	
+	#cover{
+		width: 150%;
+		background-color: green;
+	}
 
-
-
-
-
+}
