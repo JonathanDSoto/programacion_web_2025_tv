@@ -29,6 +29,8 @@ function setOperation(type){
 	console.log(type)
 }
 
+
+
 /*let uno = 5;
 var dos = 5.6;
 tres = false;
