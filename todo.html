@@ -27,6 +27,21 @@
 			
 		</div>
 
+		<div id="update_form" style="display:none;"> 
+			<form action="" method="POST" onsubmit="return saveTask()">
+			
+			<label>
+				Tarea
+			</label>
+			<input type="text" name="name" id="task_update_name" placeholder="Escríbe aquí"  onpaste="return false" required> 
+			
+			<button type="submit">
+				Actualizar
+			</button>
+
+		</form>
+		</div>
+
 	</div> 
 	
 	<script src="assets/js/todo.js"></script>
