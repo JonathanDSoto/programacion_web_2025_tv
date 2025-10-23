@@ -1,7 +1,12 @@
 function getTask()
 {
 
+<<<<<<< HEAD
 	let task = getSaveTasks()
+=======
+	// obtiene los registros que están almacenados
+	let task = JSON.parse(window.localStorage.getItem("tasks"));
+>>>>>>> refs/remotes/origin/main
 
 	let tmp_task = {
 			title:document.getElementById("task_name").value, 
@@ -9,8 +14,14 @@ function getTask()
 			color:"yellow"
 		}
 
+<<<<<<< HEAD
 	task.push(tmp_task)
+=======
+	//añade lo que esté en el input al arreglo
+	task.push(document.getElementById("task_name").value)
+>>>>>>> refs/remotes/origin/main
 
+	//guarda el arreglo actualizado en formato string
 	window.localStorage.setItem("tasks",JSON.stringify(task))
 	updateTodoList()
 
@@ -19,8 +30,10 @@ function getTask()
 
 function updateTodoList()
 {
+	//primero armo una cadena con los elementos del arreglo
 	var lista = "<ol>";
 
+<<<<<<< HEAD
 	let tasks = getSaveTasks()
 
 	console.log(tasks)
@@ -29,12 +42,18 @@ function updateTodoList()
 	tasks.forEach((task,i) => {
 		 lista+="<li> <input type='checkbox' "+((task.status) ? 'checked' : '')+" onclick='checkTask("+i+")'>   "+task.title+" <button onclick='updateTask("+i+")' >update</button> </li>"
 	} );
+=======
+	let i = 0;
+	tasks.forEach((task) =>  { lista+="<li>"+task+" <button onclick='removeItem("+i+")'> eliminar </button> </li>"; i++ } );
+>>>>>>> refs/remotes/origin/main
 
 	lista += "</ol>";
 
+	//modifico el DOM 
 	document.getElementById("todo_list").innerHTML = lista
 }
 
+<<<<<<< HEAD
 function checkTask(target)
 {
 	console.log(target)
@@ -113,3 +132,15 @@ function getSaveTasks(){
 }
 
 updateTodoList()
+=======
+updateTodoList()
+
+function removeItem(target)
+{
+	let tasks = JSON.parse(window.localStorage.getItem("tasks"));
+
+	tasks.splice(target,1);
+	window.localStorage.setItem("tasks",JSON.stringify(tasks))
+	updateTodoList()
+}
+>>>>>>> refs/remotes/origin/main
