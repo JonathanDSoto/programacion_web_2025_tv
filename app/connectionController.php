@@ -10,6 +10,7 @@ class ConnectionController{
 	function connect()
 	{
 		$conn = new mysqli($this->HOST,$this->USER,$this->PASS,$this->DBNM);
+
 		if ($conn) {
 			return $conn;
 		}
