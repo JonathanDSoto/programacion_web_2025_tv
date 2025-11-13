@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL); 
 
 include "connectionController.php";
 
@@ -11,7 +14,9 @@ class UserModel{
 	}
 
 	public function get()
-	{
+	{	
+		$conn = $this->connection->connect();
+
 		$query = "select * from users"; 
 		$prepared_query = $conn->prepare($query); 
 		$prepared_query->execute();
@@ -24,6 +29,8 @@ class UserModel{
 
 	public function create($name,$lastname,$email,$password)
 	{
+
+		$conn = $this->connection->connect();
  
 		$query = "INSERT INTO users (name, lastname, email, password) VALUES (?,?,?,?)";
 
@@ -35,7 +42,8 @@ class UserModel{
 
 		$results = $prepared_query->get_result();
 
-		if ($results->errno){
+
+		if (isset($results->errno)){
 			return false;
 		}else
 			return true;
@@ -43,6 +51,8 @@ class UserModel{
 
 	public function update($name,$lastname,$email,$password,$id)
 	{ 
+
+		$conn = $this->connection->connect();
 	
 		$query = "update users SET name= ?,lastname= ? ,email= ? ,password= ?  WHERE id = ?";
 
@@ -54,7 +64,7 @@ class UserModel{
 
 		$results = $prepared_query->get_result();
 
-		if ($results->errno){
+		if (isset($results->errno)){
 			return false;
 		}else
 			return true;
@@ -62,6 +72,8 @@ class UserModel{
 
 	public function delete($id)
 	{
+
+		$conn = $this->connection->connect();
 		$query = "delete FROM `users` WHERE id = ?";
 
 		$prepared_query = $conn->prepare($query);

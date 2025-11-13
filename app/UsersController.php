@@ -2,10 +2,10 @@
 
 include "UserModel.php";
 
-	if ($action == "create_user") {
+	if (isset($_POST['action']) && $_POST['action'] == "create_user") {
 
 	 	$name = $_POST['name'];
-	 	$lastname = $_POST['lastname'];
+	 	$lastname = ( (isset($_POST['lastname'])?$_POST['lastname']:"") );
 	 	$email = $_POST['email'];
 		$password = $_POST['password'];	
 
@@ -30,7 +30,14 @@ class UsersController{
 
 	public function create($name,$lastname,$email,$password)
 	{ 
-		return $this->User->create($name,$lastname,$email,$password);
+
+		if ($this->User->create($name,$lastname,$email,$password)) {
+			
+			header('Location: ../users.php?status=ok');
+
+		}else
+
+			header('Location: ../users.php?status=error');
 
 	}
 

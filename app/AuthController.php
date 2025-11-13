@@ -45,11 +45,11 @@ class AuthController{
 				
 				header('Location: ../home.html');
 
-			}//else
-				//header('Location: ../login.html');
+			}else
+				header('Location: ../login.html');
 			
-		}//else
-			//header('Location: ../login.html');
+		}else
+			header('Location: ../login.html');
 	} 
 
 }
