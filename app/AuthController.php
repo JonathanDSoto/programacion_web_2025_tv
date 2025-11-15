@@ -27,6 +27,14 @@ class AuthController{
 	function login($username,$password)
 	{
 
+		$username = STRIP_TAGS($username);
+		$username = HTMLESPECIALCHARTS($username);
+		$username = HTMLENTITIES($username);
+
+		$password = STRIP_TAGS($password);
+		$password = HTMLESPECIALCHARTS($password);
+		$password = HTMLENTITIES($password); 
+
 		$conn = $this->connection->connect();
 		if (!$conn->connect_error) {
 			
