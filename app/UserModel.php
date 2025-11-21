@@ -41,6 +41,7 @@ class UserModel{
 		$prepared_query->execute();
 
 		$results = $prepared_query->get_result();
+		//if ($prepared_query->affected_rows > 0)
 
 
 		if (isset($results->errno)){
@@ -64,6 +65,8 @@ class UserModel{
 
 		$results = $prepared_query->get_result();
 
+		//if ($prepared_query->affected_rows > 0)
+
 		if (isset($results->errno)){
 			return false;
 		}else
@@ -83,6 +86,7 @@ class UserModel{
 		$prepared_query->execute();
 
 		$results = $prepared_query->get_result();
+		//if ($prepared_query->affected_rows > 0)
 
 		if ($results->errno){
 			return false;

@@ -31,6 +31,21 @@ class UsersController{
 	public function create($name,$lastname,$email,$password)
 	{ 
 
+	    $name     = ToolsController::clean($name);
+	    $lastname = ToolsController::clean($lastname);
+	    $email    = ToolsController::clean($email);
+	    $password = ToolsController::clean($password);
+
+	    if(!ToolsController::validate($name, 'alpha') ||
+	        !ToolsController::validate($lastname, 'alpha') ||
+	        !ToolsController::validate($email, 'email') ||
+	        !ToolsController::validate($password, 'string')){
+	       
+	        header('Location: ../users.php?status=invalid');
+	
+	    }
+
+
 		if ($this->User->create($name,$lastname,$email,$password)) {
 			
 			header('Location: ../users.php?status=ok');
