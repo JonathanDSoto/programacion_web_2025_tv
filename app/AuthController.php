@@ -1,4 +1,10 @@
 <?php 
+	session_start();
+
+	if (!isset($_SESSION['token'])) { 
+		$_SESSION['token'] =  md5(uniqid(mt_rand(), true));
+	}
+
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL); 
@@ -6,11 +12,14 @@
 	include "connectionController.php";
 
 	$action = $_POST['action'];
+	$ftoken = $_POST['ftoken'];	
 
-	if ($action == "login") {
+
+
+	if ($action == "login" && $ftoken == $_SESSION['token']) {
 
 	 	$username = $_POST['username'];
-		$password = $_POST['password'];	
+		$password = $_POST['password']; 
 
 		$auth = new AuthController();
 		$auth->login($username,$password);
@@ -50,14 +59,17 @@ class AuthController{
 			$users = $results->fetch_all(MYSQLI_ASSOC);
 
 			if (count($users)>0) {
+
+				$_SESSION['email'] = $users['email'];
+				$_SESSION['name'] = $users['name'];
 				
-				header('Location: ../home.html');
+				header('Location: ../home.php');
 
 			}else
-				header('Location: ../login.html');
+				header('Location: ../login.php');
 			
 		}else
-			header('Location: ../login.html');
+			header('Location: ../login.php');
 	} 
 
 }

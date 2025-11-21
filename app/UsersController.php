@@ -1,17 +1,34 @@
 <?php
+session_start();
 
+if (!isset($_SESSION['token'])) { 
+	$_SESSION['token'] =  md5(uniqid(mt_rand(), true));
+}
 include "UserModel.php";
 
-	if (isset($_POST['action']) && $_POST['action'] == "create_user") {
+	$action = (isset($_POST['action']))?$_POST['action']:'';
+	$ftoken = (isset($_POST['ftoken']))?$_POST['ftoken']:'';
 
-	 	$name = $_POST['name'];
-	 	$lastname = ( (isset($_POST['lastname'])?$_POST['lastname']:"") );
-	 	$email = $_POST['email'];
-		$password = $_POST['password'];	
+	if ($ftoken == $_SESSION['token']) { 
 
-		$user = new UsersController();
-		$user->create($name,$lastname,$email,$password);
-	} 
+		switch ($action) {
+			case 'create_user':
+					
+				$name = $_POST['name'];
+			 	$lastname = ( (isset($_POST['lastname'])?$_POST['lastname']:"") );
+			 	$email = $_POST['email'];
+				$password = $_POST['password'];	
+
+				$user = new UsersController();
+				$user->create($name,$lastname,$email,$password);
+
+				break;
+			
+			default: 
+				break;
+		}  
+	 
+	}	
 
 class UsersController{
 

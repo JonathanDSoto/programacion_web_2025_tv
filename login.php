@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+
+	if (!isset($_SESSION['token'])) { 
+		$_SESSION['token'] =  md5(uniqid(mt_rand(), true));
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +67,7 @@
 				</button>
 
 				<input type="hidden" name="action" value="login">
+				<input type="hidden" name="ftoken" value="<?= $_SESSION['token'] ?>">
 
 			</form>
 
