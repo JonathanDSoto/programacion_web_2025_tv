@@ -5,6 +5,7 @@ if (!isset($_SESSION['token'])) {
 	$_SESSION['token'] =  md5(uniqid(mt_rand(), true));
 }
 include "UserModel.php";
+include 'ToolsController.php';
 
 	$action = (isset($_POST['action']))?$_POST['action']:'';
 	$ftoken = (isset($_POST['ftoken']))?$_POST['ftoken']:'';

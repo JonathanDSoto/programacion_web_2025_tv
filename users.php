@@ -89,6 +89,15 @@
 		<div>
 			
 			<label>
+				Apellidos
+			</label>
+			<input type="text" placeholder="write here" name="lastname">
+
+		</div>
+
+		<div>
+			
+			<label>
 				Email
 			</label>
 			<input type="email" placeholder="write here" name="email">
@@ -109,6 +118,7 @@
 		</button>
 
 		<input type="hidden" name="action" value="create_user">
+		<input type="hidden" name="ftoken" value="<?= $_SESSION['token'] ?>">
 
 	</form>
 

@@ -36,13 +36,12 @@ class AuthController{
 	function login($username,$password)
 	{
 
-		$username = STRIP_TAGS($username);
-		$username = HTMLESPECIALCHARTS($username);
-		$username = HTMLENTITIES($username);
+	    $username = strip_tags($username);
+	    $username = trim($username);
+	    $username = htmlspecialchars($username, ENT_QUOTES, 'UTF-8');
 
-		$password = STRIP_TAGS($password);
-		$password = HTMLESPECIALCHARTS($password);
-		$password = HTMLENTITIES($password); 
+	    $password = strip_tags($password);
+	    $password = trim($password);
 
 		$conn = $this->connection->connect();
 		if (!$conn->connect_error) {
