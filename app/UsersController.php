@@ -23,7 +23,28 @@ include 'ToolsController.php';
 				$user = new UsersController();
 				$user->create($name,$lastname,$email,$password);
 
-				break;
+			break;
+
+			case 'update_users':
+					
+				$name = $_POST['name'];
+			 	$lastname = ( (isset($_POST['lastname'])?$_POST['lastname']:"") );
+			 	$email = $_POST['email'];
+				$user_id = $_POST['user_id'];	
+
+				$user = new UsersController();
+				$user->update($name,$lastname,$email,$user_id);
+
+			break;
+
+			case 'remove_users':
+					
+				$user_id = $_POST['user_id']; 	
+
+				$user = new UsersController();
+				//$user->create($name,$lastname,$email,$password);
+
+			break;
 			
 			default: 
 				break;
@@ -65,6 +86,46 @@ class UsersController{
 
 
 		if ($this->User->create($name,$lastname,$email,$password)) {
+			
+			header('Location: ../users.php?status=ok');
+
+		}else
+
+			header('Location: ../users.php?status=error');
+
+	}
+
+	public function update($name,$lastname,$email,$user_id)
+	{ 
+
+	    $name     = ToolsController::clean($name);
+	    $lastname = ToolsController::clean($lastname);
+	    $email    = ToolsController::clean($email); 
+
+	    if(!ToolsController::validate($name, 'alpha') ||
+	        !ToolsController::validate($lastname, 'alpha') ||
+	        !ToolsController::validate($email, 'email') ){
+	       
+	        header('Location: ../users.php?status=invalid');
+	
+	    }
+
+
+		if ($this->User->update($name,$lastname,$email,$user_id)) {
+			
+			header('Location: ../users.php?status=ok');
+
+		}else
+
+			header('Location: ../users.php?status=error');
+
+	}
+
+	public function remove($user_id)
+	{ 
+ 
+
+		if ($this->User->delete($user_id)) {
 			
 			header('Location: ../users.php?status=ok');
 

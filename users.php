@@ -61,10 +61,10 @@
 				<?= $user['password'] ?>
 			</td>
 			<td>
-				<button data-user='<?= json_encode($user) ?>'>
+				<button onclick="editUser(this)" data-user='<?= json_encode($user) ?>'  >
 					Editar
 				</button>
-				<button>
+				<button onclick="removeUser(<?= $user['id'] ?>)"  >
 					Eliminar
 				</button>
 			</td>
@@ -76,50 +76,68 @@
 	<hr>
 
 	<form method="post" action="./app/UsersController.php">
-		
-		<div>
-			
+		<div> 
 			<label>
 				Nombre
 			</label>
-			<input type="text" placeholder="write here" name="name">
-
-		</div>
-
-		<div>
-			
+			<input type="text" placeholder="write here" name="name"> 
+		</div> 
+		<div> 
 			<label>
 				Apellidos
 			</label>
-			<input type="text" placeholder="write here" name="lastname">
-
-		</div>
-
-		<div>
-			
+			<input type="text" placeholder="write here" name="lastname"> 
+		</div> 
+		<div> 
 			<label>
 				Email
 			</label>
 			<input type="email" placeholder="write here" name="email">
-
 		</div>
-
 		<div>
-			
 			<label>
 				Password
 			</label>
 			<input type="password" placeholder="write here" name="password">
-
 		</div>
-
 		<button type="submit">
 			Guardar datos
 		</button>
-
 		<input type="hidden" name="action" value="create_user">
 		<input type="hidden" name="ftoken" value="<?= $_SESSION['token'] ?>">
+	</form>
 
+	<form method="post" action="./app/UsersController.php">
+		<div> 
+			<label>
+				Nombre
+			</label>
+			<input type="text" placeholder="write here" id="name" name="name"> 
+		</div> 
+		<div> 
+			<label>
+				Apellidos
+			</label>
+			<input type="text" placeholder="write here" id="lastname" name="lastname"> 
+		</div> 
+		<div> 
+			<label>
+				Email
+			</label>
+			<input type="email" placeholder="write here" id="email" name="email">
+		</div> 
+		<button type="submit">
+			Actualizar datos
+		</button>
+		<input type="hidden" name="action" value="update_users">
+		<input type="hidden" name="user_id" id="user_id" value="">
+		<input type="hidden" name="ftoken" value="<?= $_SESSION['token'] ?>">
+	</form>
+
+	<form id="form_to_delete" method="post" action="./app/UsersController.php"> 
+		<input type="hidden" name="action" value="remove_users">
+		<input type="hidden" name="user_id" id="remove_user_id" value="">
+		<input type="hidden" name="ftoken" value="<?= $_SESSION['token'] ?>">
 	</form>
 
 </body>

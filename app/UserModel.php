@@ -55,16 +55,16 @@ class UserModel{
 			return true;
 	}
 
-	public function update($name,$lastname,$email,$password,$id)
+	public function update($name,$lastname,$email,$id)
 	{ 
 
 		$conn = $this->connection->connect();
 	
-		$query = "update users SET name= ?,lastname= ? ,email= ? ,password= ?  WHERE id = ?";
+		$query = "update users SET name= ?,lastname= ? ,email= ?  WHERE id = ?";
 
 		$prepared_query = $conn->prepare($query);
 
-		$prepared_query->bind_param('ssssi', $name,$lastname,$email,$password,$id);
+		$prepared_query->bind_param('sssi', $name,$lastname,$email,$id);
 
 		$prepared_query->execute();
 
